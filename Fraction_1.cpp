@@ -14,53 +14,50 @@ void Fraction::set_den(int den_p)
 	}
 }
 
-//void Fraction::sum(int num_2, int den_2)
-//{
-//	int main_den, main_num, nod;
-//
-//	main_den = denominator * den_2;
-//	main_num = ((numenator * den_2) + (num_2 * denominator));
-//
-//	nod = reduction(main_num, main_den);
-//	printf("Сумма дробей равна %d/%d\n", main_num / nod, main_den / nod);
-//	system("pause");
-//}
+Fraction operator+(const Fraction& fract1, const Fraction& fract2)
+{
+	int main_den, main_num, nod;
 
-//void Fraction::difference(int num_2, int den_2)
-//{
-//	int main_den, main_num, nod;
-//
-//	main_den = denominator * den_2;
-//	main_num = ((numenator * den_2) - (num_2 * denominator));
-//
-//	nod = reduction(main_num, main_den);
-//	printf("Разность дробей равна %d/%d\n", main_num / nod, main_den / nod);
-//	system("pause");
-//}
+	main_den = fract1.denominator * fract2.denominator;
+	main_num = ((fract1.numenator * fract2.denominator) + (fract2.numenator * fract1.denominator));
 
-//void Fraction::multiplication(int num_2, int den_2)
-//{
-//	int main_den, main_num, nod;
-//
-//	main_den = denominator * den_2;
-//	main_num = numenator * num_2;
-//
-//	nod = reduction(main_num, main_den);
-//	printf("Произведение дробей равно %d/%d\n", main_num / nod, main_den / nod);
-//	system("pause");
-//}
+	nod = reduction(main_num, main_den);
 
-//void Fraction::division(int num_2, int den_2)
-//{
-//	int main_den, main_num, nod, buf;
-//
-//	buf = num_2;
-//	num_2 = den_2;
-//	den_2 = buf;
-//	main_num = numenator * num_2;
-//	main_den = denominator * den_2;
-//
-//	nod = reduction(main_num, main_den);
-//	printf("Частное дробей равно %d/%d\n", main_num / nod, main_den / nod);
-//	system("pause");
-//}
+	return Fraction(main_num / nod, main_den / nod);
+}
+
+Fraction operator-(const Fraction& fract1, const Fraction& fract2)
+{
+	int main_den, main_num, nod;
+
+	main_den = fract1.denominator * fract2.denominator;
+	main_num = ((fract1.numenator * fract2.denominator) - (fract2.numenator * fract1.denominator));
+
+	nod = reduction(main_num, main_den);
+
+	return Fraction(main_num / nod, main_den / nod);
+}
+
+Fraction operator*(const Fraction& fract1, const Fraction& fract2)
+{
+	int main_den, main_num, nod;
+
+	main_den = fract1.denominator * fract2.denominator;
+	main_num = fract1.numenator * fract2.numenator;
+
+	nod = reduction(main_num, main_den);
+
+	return Fraction(main_num / nod, main_den / nod);
+}
+
+Fraction operator/(const Fraction& fract1, const Fraction& fract2)
+{
+	int main_den, main_num, nod, swapper_den2 = fract2.numenator, swapper_num2 = fract2.denominator;
+
+	main_num = fract1.numenator * swapper_num2;
+	main_den = fract1.denominator * swapper_den2;
+
+	nod = reduction(main_num, main_den);
+
+	return Fraction(main_num / nod, main_den / nod);
+}

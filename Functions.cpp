@@ -2,7 +2,7 @@
 
 int reduction(int& main_num, int& main_den)
 {
-	int buf_num = main_num, buf_den = main_den, nod;
+	int buf_num = main_num, buf_den = main_den;
 
 	while (buf_num != buf_den)
 	{

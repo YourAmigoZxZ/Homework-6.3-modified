@@ -37,16 +37,20 @@ int main()
 			system("pause");
 			break;
 		case SUM:
-			fract.sum(fract_2.get_num(), fract_2.get_den());
+			cout << fract + fract_2 << '\n';
+			system("pause");
 			break;
 		case DIFFERENCE:
-			fract.difference(fract_2.get_num(), fract_2.get_den());
+			cout << fract - fract_2 << '\n';
+			system("pause");
 			break;
 		case MULTIPLICATION:
-			fract.multiplication(fract_2.get_num(), fract_2.get_den());
+			cout << fract * fract_2 << '\n';
+			system("pause");
 			break;
 		case DIVISION:
-			fract.division(fract_2.get_num(), fract_2.get_den());
+			cout << fract / fract_2 << '\n';
+			system("pause");
 			break;
 		case EXIT:
 			break;
