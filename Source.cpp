@@ -6,7 +6,8 @@ int main()
 
 	Fraction fract;
 	Fraction fract_2;
-	int num, den, num_2, den_2, user_choice;
+	//Переменные для числителя, знаменателя и выбора пользователя в меню
+	int num, den, user_choice;
 	enum Menu {EXIT = 0, INITIALIZATION, PRINT, SUM, DIFFERENCE, MULTIPLICATION, DIVISION};
 
 	do
@@ -26,14 +27,14 @@ int main()
 			fract.set_den(den);
 
 			cout << "Введите числитель и знаменатель для второй дроби: ";
-			cin >> num_2 >> den_2;
+			cin >> num >> den;
 
-			fract_2.set_num(num_2);
-			fract_2.set_den(den_2);
+			fract_2.set_num(num);
+			fract_2.set_den(den);
 			break;
 		case PRINT:
-			printf("Первая дробь - %d/%d\n", fract.get_num(), fract.get_den());
-			printf("Вторая дробь - %d/%d\n", fract_2.get_num(), fract_2.get_den());
+			cout << "Первая дробь: " << fract << "\n";
+			cout << "Вторая дробь: " << fract_2 << "\n";
 			system("pause");
 			break;
 		case SUM:
